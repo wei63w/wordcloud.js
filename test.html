@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="src/wordcloud2.js"></script>
+	</head>
+	<body>
+		
+		<div id="test" style="height: 200px;width: 200px;border: 1px solid blue;">
+			<canvas id="can" width="200px" height="200px"></canvas>
+			
+		</div>
+		
+			
+		
+		<script>
+			//api https://wordcloud2-js.timdream.org/#web-tech
+		   var wordFreqData = [['各位观众',45],['词云', 21],['来啦!!!',13]];
+		    var canvas = document.getElementById('can');
+		    var options = eval({
+		            "list": wordFreqData,//或者[['各位观众',45],['词云', 21],['来啦!!!',13]],只要格式满足这样都可以
+		            "gridSize": 6, // 密集程度 数字越小越密集
+		            "weightFactor": 1, // 字体大小=原始大小*weightFactor
+		            "maxFontSize": 60, //最大字号
+		            "minFontSize": 14, //最小字号
+		            "fontWeight": 'normal', //字体粗细
+		            "fontFamily": 'Times, serif', // 字体
+		            "color": 'random-light', // 字体颜色 'random-dark' 或者 'random-light'
+		            "backgroundColor": '#333', // 背景颜色
+		            "rotateRatio": 1, // 字体倾斜(旋转)概率，1代表总是倾斜(旋转)
+		            "click":function(item){
+		            	  console.log('this is click:'+item[0]+':'+item[1]);
+		            }
+		        });
+		    //生成
+		     WordCloud(canvas, options);
+		</script>
+		
+		
+	</body>
+</html>
